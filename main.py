@@ -1,28 +1,29 @@
-# imports and global valuable
-
 # getting the string from the user
 def get_string():
-    user_string = input("Please enter your word::")
+    user_string = input("Please enter your word:")
     return user_string
 
 
 # checking if the string is palindrome
-def check_string(user_string):
-    if user_string == user_string[::-1]:
-        return "The string is palindrome."
-    else:
-        return "The string is not a palindrome."
+def is_palindrome(user_string):
+    return user_string == user_string[::-1]
 
 
-# creating a mani function to run the program
+# creating a main function to run the program
 def main():
-    user_string = get_string()
-    print(check_string(user_string))
-    print("End of program.")
+    answer = "y"
+    while answer.lower() == "y":
+        user_string = get_string()
+        if is_palindrome(user_string):
+            print("The string is a palindrome.")
+        else:
+            print("The string is not a palindrome.")
 
-# looping the program if needed
-answer = "y"
-while answer == "y" or answer == "Y":
+        print("End of program.")
+        answer = input("Do you want to continue (y/n):")
+    print("Have a great day!")
+
+
+if __name__ == "__main__":
     main()
-    answer = input("Do you want to continue(y/n)::")
-print("Have a great day!")
+    
